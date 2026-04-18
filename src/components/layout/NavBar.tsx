@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import Logo from '@/assets/logo.svg';
+import Darklogo from '@/assets/dark-logo.svg';
+import Lightlogo from '@/assets/light-logo.svg';
 import { Input } from '@/components/ui/input';
 import { Moon, Sun } from 'lucide-react';
 
@@ -21,7 +22,7 @@ const NavBar = () => {
 
   return (
     <nav className='flex items-center justify-between h-16 px-6 bg-zinc-400 dark:bg-zinc-900'>
-      <img src={Logo} className='h-12 w-auto object-contain' />
+      <img src={theme === 'dark' ? Lightlogo : Darklogo} className='h-12 w-auto object-contain' />
       <div className='flex-1 flex justify-center'>
         <Input
           placeholder='Search games...'
