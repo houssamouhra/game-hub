@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Darklogo from '@/assets/dark-logo.svg';
 import Lightlogo from '@/assets/light-logo.svg';
 import { Input } from '@/components/ui/input';
-import { Search, Moon, Sun } from 'lucide-react';
+import { Icon } from '@iconify/react';
 
 const NavBar = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -22,9 +22,17 @@ const NavBar = () => {
 
   return (
     <nav className='flex items-center justify-between h-16 px-6 bg-zinc-400 dark:bg-zinc-900'>
-      <img src={theme === 'dark' ? Lightlogo : Darklogo} className='h-12 w-auto object-contain' />
+      <img
+        src={theme === 'dark' ? Lightlogo : Darklogo}
+        className='h-12 w-auto pr-2 object-contain'
+      />
       <div className='relative w-full max-w-xl group'>
-        <Search className='pointer-events-none absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400 dark:group-hover:text-neutral-700 transition' />
+        <Icon
+          icon='material-symbols:search-rounded'
+          width='24'
+          height='24'
+          className='pointer-events-none absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400 dark:group-hover:text-neutral-700 transition'
+        />
         <Input
           placeholder='Search games...'
           className='pl-8 w-full max-w-xl rounded-full text-sm bg-white dark:bg-neutral-700 dark:text-neutral-300 dark:group-hover:bg-white dark:group-hover:text-black transition duration-300'
@@ -35,7 +43,11 @@ const NavBar = () => {
         className='p-2 rounded-full hover:bg-zinc-700 transition cursor-pointer'
         aria-label='Toggle theme'
       >
-        {theme === 'dark' ? <Sun /> : <Moon />}
+        {theme === 'dark' ? (
+          <Icon icon='tabler:sun-filled' width='24' height='24' />
+        ) : (
+          <Icon icon='tabler:moon' width='24' height='24' />
+        )}
       </button>
     </nav>
   );

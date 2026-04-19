@@ -1,6 +1,6 @@
 import useGames from '@/hooks/useGames';
 import GameCard from '@/components/features/GameCard';
-import { AlertCircleIcon } from 'lucide-react';
+import { Icon } from '@iconify/react';
 import { Alert, AlertAction, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const GameGrid = () => {
@@ -10,7 +10,7 @@ const GameGrid = () => {
     <>
       {error && (
         <Alert variant='destructive' className='max-w-md'>
-          <AlertCircleIcon className='h-4 w-4' />
+          <Icon icon='tabler:alert-circle' width='4' height='4' />
           <AlertTitle>Something went wrong</AlertTitle>
           <AlertDescription>{error}</AlertDescription>
           <AlertAction></AlertAction>
