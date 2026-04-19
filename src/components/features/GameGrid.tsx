@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import apiClient from '@/services/api-client';
+import { AlertCircleIcon } from 'lucide-react';
+import { Alert, AlertAction, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 interface Game {
   id: number;
@@ -24,7 +26,14 @@ const GameGrid = () => {
 
   return (
     <>
-      {error && <p>{error}</p>}
+      {error && (
+        <Alert variant='destructive' className='max-w-md'>
+          <AlertCircleIcon className='h-4 w-4' />
+          <AlertTitle>Something went wrong</AlertTitle>
+          <AlertDescription>{error}</AlertDescription>
+          <AlertAction></AlertAction>
+        </Alert>
+      )}
       <ul>
         {games.map((game) => (
           <li key={game.id}>{game.name}</li>
