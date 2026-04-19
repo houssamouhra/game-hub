@@ -1,4 +1,5 @@
 import useGames from '@/hooks/useGames';
+import GameCard from '@/components/features/GameCard';
 import { AlertCircleIcon } from 'lucide-react';
 import { Alert, AlertAction, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
@@ -15,11 +16,11 @@ const GameGrid = () => {
           <AlertAction></AlertAction>
         </Alert>
       )}
-      <ul>
+      <div className='grid grid-rows-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 p-10 gap-6'>
         {games.map((game) => (
-          <li key={game.id}>{game.name}</li>
+          <GameCard key={game.id} game={game} />
         ))}
-      </ul>
+      </div>
     </>
   );
 };
