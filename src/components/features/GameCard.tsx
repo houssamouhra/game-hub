@@ -10,7 +10,7 @@ interface GameCardProps {
 
 const GameCard = ({ game }: GameCardProps) => {
   return (
-    <Card className=''>
+    <Card>
       <img src={getCroppedImageUrl(game.background_image)} alt='game_image' />
       <CardHeader>
         <CardTitle className='text-xl'>{game.name}</CardTitle>
