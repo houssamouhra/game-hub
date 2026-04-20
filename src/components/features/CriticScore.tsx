@@ -5,7 +5,12 @@ interface CriticScoreProps {
 }
 
 const CriticScore = ({ score }: CriticScoreProps) => {
-  return <Badge variant='secondary'>{score}</Badge>;
+  const color = score > 75 ? 'text-green-300' : score > 60 ? 'text-yellow-300' : '';
+  return (
+    <Badge variant='secondary' className={color}>
+      {score}
+    </Badge>
+  );
 };
 
 export default CriticScore;
