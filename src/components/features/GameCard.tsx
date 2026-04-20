@@ -2,6 +2,7 @@ import { type Game } from '@/hooks/useGames';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import PlatformIconList from '@/components/features/PlatformIconList';
 import CriticScore from '@/components/features/CriticScore';
+import getCroppedImageUrl from '@/utils/image-url';
 
 interface GameCardProps {
   game: Game;
@@ -9,10 +10,8 @@ interface GameCardProps {
 
 const GameCard = ({ game }: GameCardProps) => {
   return (
-    <Card>
-      <div>
-        <img src={game.background_image} alt='game_image' />
-      </div>
+    <Card className=''>
+      <img src={getCroppedImageUrl(game.background_image)} alt='game_image' />
       <CardHeader>
         <CardTitle className='text-xl'>{game.name}</CardTitle>
         <div className='flex justify-between items-center'>
