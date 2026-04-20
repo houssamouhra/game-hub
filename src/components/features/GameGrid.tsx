@@ -1,10 +1,11 @@
 import useGames from '@/hooks/useGames';
 import GameCard from '@/components/features/GameCard';
+import GameCardSkeleton from '@/components/features/GameCardSkeleton';
 import { Icon } from '@iconify/react';
 import { Alert, AlertAction, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const GameGrid = () => {
-  const { games, error } = useGames();
+  const { games, error, isLoading } = useGames();
 
   return (
     <>
@@ -17,6 +18,7 @@ const GameGrid = () => {
         </Alert>
       )}
       <div className='grid grid-rows-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 p-10 gap-6'>
+        {isLoading && Array.from({ length: 20 }, (_, i) => <GameCardSkeleton key={i} />)}
         {games.map((game) => (
           <GameCard key={game.id} game={game} />
         ))}
