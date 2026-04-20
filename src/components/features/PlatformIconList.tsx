@@ -19,11 +19,11 @@ const PlatformIconList = ({ platforms }: PlatformIconListProps) => {
   };
 
   return (
-    <div className='flex gap-1'>
+    <>
       {platforms.map((platform) => (
         <Icon icon={iconMap[platform.slug]} className='text-gray-400' />
       ))}
-    </div>
+    </>
   );
 };
 
