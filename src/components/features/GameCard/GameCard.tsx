@@ -1,6 +1,6 @@
 import { type Game } from '@/hooks/useGames';
 import { CardHeader, CardTitle } from '@/components/ui/card';
-import GameCardContainer from '@/components/features/GameCardContainer';
+import GameCardContainer from '@/components/features/GameCard/GameCardContainer';
 import PlatformIconList from '@/components/features/PlatformIconList';
 import CriticScore from '@/components/features/CriticScore';
 import getCroppedImageUrl from '@/utils/image-url';
