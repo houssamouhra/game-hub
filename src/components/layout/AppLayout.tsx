@@ -1,10 +1,11 @@
 import GameGrid from '@/components/features/GameGrid';
+import GenreList from '@/components/features/GenreList';
 
 const AppLayout = () => {
   return (
     <div className='flex'>
       <aside className='hidden lg:block w-64'>
-        <div className='min-h-screen'>side bar</div>
+        <GenreList />
       </aside>
       <main className='min-h-screen flex-1'>
         <GameGrid />
