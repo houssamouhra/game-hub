@@ -1,5 +1,5 @@
-import { Skeleton } from '@/components/ui/skeleton';
-import { CardContent, CardHeader } from '@/components/ui/card';
+import { Skeleton } from '@/ui/skeleton';
+import { CardContent, CardHeader } from '@/ui/card';
 import { GameCardContainer } from '@/components/features/GameCard';
 
 const GameCardSkeleton = () => {

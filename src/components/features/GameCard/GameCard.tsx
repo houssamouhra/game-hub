@@ -1,5 +1,5 @@
 import { type Game } from '@/hooks/useGames';
-import { CardHeader, CardTitle } from '@/components/ui/card';
+import { CardHeader, CardTitle } from '@/ui/card';
 import { GameCardContainer } from '@/components/features/GameCard';
 import PlatformIconList from '@/components/features/PlatformIconList';
 import CriticScore from '@/components/features/CriticScore';

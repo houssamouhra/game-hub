@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Darklogo from '@/assets/dark-logo.svg';
 import Lightlogo from '@/assets/light-logo.svg';
-import { Input } from '@/components/ui/input';
+import { Input } from '@/ui/input';
 import { Icon } from '@iconify/react';
 
 const NavBar = () => {
