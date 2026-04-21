@@ -1,7 +1,6 @@
 import { Icon } from '@iconify/react';
 import useGames from '@/hooks/useGames';
-import GameCard from '@/components/features/GameCard/GameCard';
-import GameCardSkeleton from '@/components/features/GameCard/GameCardSkeleton';
+import { GameCard, GameCardSkeleton } from '@/components/features/GameCard';
 import { Alert, AlertAction, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const GameGrid = () => {
