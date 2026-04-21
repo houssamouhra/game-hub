@@ -1,4 +1,5 @@
 import useGenres from '@/hooks/useGenres';
+import getCroppedImageUrl from '@/utils/image-url';
 
 const GenreList = () => {
   const { data } = useGenres();
@@ -7,7 +8,16 @@ const GenreList = () => {
     <div className='min-h-screen pt-10'>
       <ul>
         {data.map((genre) => (
-          <li key={genre.id}>{genre.name}</li>
+          <li key={genre.id}>
+            <div className='flex items-center gap-1.5 py-1'>
+              <img
+                src={getCroppedImageUrl(genre.image_background)}
+                alt={genre.name}
+                className='w-8 h-8 rounded-md object-cover'
+              />
+              <div className='text-md'>{genre.name}</div>
+            </div>
+          </li>
         ))}
       </ul>
     </div>
