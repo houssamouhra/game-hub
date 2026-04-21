@@ -1,6 +1,6 @@
 import GameGrid from '@/components/features/GameGrid';
 
-const Applayout = () => {
+const AppLayout = () => {
   return (
     <div className='flex'>
       <aside className='hidden lg:block w-64'>
@@ -13,4 +13,4 @@ const Applayout = () => {
   );
 };
 
-export default Applayout;
+export default AppLayout;

@@ -1,11 +1,11 @@
 import NavBar from '@/components/layout/NavBar';
-import Applayout from '@/components/layout/Applayout';
+import AppLayout from '@/components/layout/AppLayout';
 
 const App = () => {
   return (
     <>
       <NavBar />
-      <Applayout />
+      <AppLayout />
     </>
   );
 };
