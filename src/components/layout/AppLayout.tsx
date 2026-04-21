@@ -1,5 +1,5 @@
 import GameGrid from '@/components/features/GameGrid';
-import GenreList from '@/components/features/GenreList';
+import { GenreList } from '@/components/features/GenreList';
 
 const AppLayout = () => {
   return (

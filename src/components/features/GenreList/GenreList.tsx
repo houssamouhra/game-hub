@@ -1,6 +1,6 @@
 import useGenres from '@/hooks/useGenres';
 import getCroppedImageUrl from '@/utils/image-url';
-import GenreListSkeleton from '@/components/features/GenreListSkeleton';
+import { GenreListSkeleton } from '@/components/features/GenreList';
 
 const GenreList = () => {
   const { data, isLoading } = useGenres();
