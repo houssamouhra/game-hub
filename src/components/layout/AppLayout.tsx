@@ -9,7 +9,10 @@ const AppLayout = () => {
   return (
     <div className='flex'>
       <aside className='hidden lg:block w-54 px-4'>
-        <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)} />
+        <GenreList
+          onSelectGenre={(genre) => setSelectedGenre(genre)}
+          selectedGenre={selectedGenre}
+        />
       </aside>
       <main className='min-h-screen flex-1'>
         <GameGrid selectedGenre={selectedGenre} />
