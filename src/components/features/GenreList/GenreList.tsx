@@ -1,8 +1,13 @@
-import useGenres from '@/hooks/useGenres';
+import useGenres, { type Genre } from '@/hooks/useGenres';
 import getCroppedImageUrl from '@/utils/image-url';
 import { GenreListSkeleton } from '@/components/features/GenreList';
+import { Button } from '@/components/ui/button';
 
-const GenreList = () => {
+interface GenreListProps {
+  onSelectGenre: (genre: Genre) => void;
+}
+
+const GenreList = ({ onSelectGenre }: GenreListProps) => {
   const { data, isLoading } = useGenres();
 
   return (
@@ -18,7 +23,13 @@ const GenreList = () => {
                     alt={genre.name}
                     className='w-8 h-8 rounded-md object-cover'
                   />
-                  <div className='text-md'>{genre.name}</div>
+                  <Button
+                    onClick={() => onSelectGenre(genre)}
+                    className='text-md cursor-pointer'
+                    variant='link'
+                  >
+                    {genre.name}
+                  </Button>
                 </div>
               </li>
             ))}
