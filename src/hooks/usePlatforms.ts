@@ -1,10 +1,5 @@
 import useData from '@/hooks/useData';
-
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
+import { type Platform } from './useGames';
 
 const usePlatforms = () => useData<Platform>('/platforms/lists/parents');
 
