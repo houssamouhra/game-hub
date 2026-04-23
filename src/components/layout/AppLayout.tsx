@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import GameGrid from '@/components/features/GameGrid';
 import { GenreList } from '@/components/features/GenreList';
+import PlatformSelector from '@/components/features/PlatformSelector';
 import { type Genre } from '@/hooks/useGenres';
+import usePlatforms from '@/hooks/usePlatforms';
 
 const AppLayout = () => {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const { data, error } = usePlatforms();
 
   return (
     <div className='flex'>
@@ -14,7 +17,8 @@ const AppLayout = () => {
           selectedGenre={selectedGenre}
         />
       </aside>
-      <main className='min-h-screen flex-1'>
+      <main className='min-h-screen flex-1 pt-10'>
+        {!error && <PlatformSelector platforms={data} />}
         <GameGrid selectedGenre={selectedGenre} />
       </main>
     </div>
