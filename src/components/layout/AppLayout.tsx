@@ -3,11 +3,13 @@ import GameGrid from '@/components/features/GameGrid';
 import { GenreList } from '@/components/features/GenreList';
 import PlatformSelector from '@/components/features/PlatformSelector';
 import { type Genre } from '@/hooks/useGenres';
+import { type Platform } from '@/hooks/useGames';
 import usePlatforms from '@/hooks/usePlatforms';
 
 const AppLayout = () => {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const { data, error } = usePlatforms();
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
+  const { data: platforms, error } = usePlatforms();
 
   return (
     <div className='flex'>
@@ -18,8 +20,13 @@ const AppLayout = () => {
         />
       </aside>
       <main className='min-h-screen flex-1 pt-10'>
-        {!error && <PlatformSelector platforms={data} />}
-        <GameGrid selectedGenre={selectedGenre} />
+        {!error && (
+          <PlatformSelector
+            platforms={platforms}
+            onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+          />
+        )}
+        <GameGrid selectedPlatform={selectedPlatform} selectedGenre={selectedGenre} />
       </main>
     </div>
   );

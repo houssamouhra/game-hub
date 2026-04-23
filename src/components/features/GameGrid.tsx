@@ -1,15 +1,16 @@
 import { Icon } from '@iconify/react';
-import useGames from '@/hooks/useGames';
 import { GameCard, GameCardSkeleton } from '@/components/features/GameCard';
 import { Alert, AlertAction, AlertDescription, AlertTitle } from '@/ui/alert';
+import useGames, { type Platform } from '@/hooks/useGames';
 import { type Genre } from '@/hooks/useGenres';
 
 interface GameGridProps {
   selectedGenre: Genre | null;
+  selectedPlatform: Platform | null;
 }
 
-const GameGrid = ({ selectedGenre }: GameGridProps) => {
-  const { data, isLoading, error } = useGames(selectedGenre);
+const GameGrid = ({ selectedGenre, selectedPlatform }: GameGridProps) => {
+  const { data, isLoading, error } = useGames(selectedGenre, selectedPlatform);
 
   return (
     <>

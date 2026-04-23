@@ -10,12 +10,18 @@ import { type Platform } from '@/hooks/useGames';
 
 interface PlatformSelectorProps {
   platforms: Platform[];
+  onSelectPlatform: (platform: Platform) => void;
 }
 
-const PlatformSelector = ({ platforms }: PlatformSelectorProps) => {
+const PlatformSelector = ({ platforms, onSelectPlatform }: PlatformSelectorProps) => {
   return (
     <div className='pl-10 pb-3'>
-      <Select>
+      <Select
+        onValueChange={(value) => {
+          const selected = platforms.find((p) => p.name === value);
+          if (selected) onSelectPlatform(selected);
+        }}
+      >
         <SelectTrigger className='w-full max-w-48'>
           <SelectValue placeholder='Platforms' />
         </SelectTrigger>

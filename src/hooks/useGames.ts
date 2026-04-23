@@ -16,8 +16,17 @@ export interface Game {
   metacritic: number;
 }
 
-const useGames = (selectedGenre: Genre | null) => {
-  const config = useMemo(() => ({ params: { genres: selectedGenre?.id } }), [selectedGenre?.id]);
+const useGames = (selectedGenre: Genre | null, selectedPlatform: Platform | null) => {
+  const config = useMemo(
+    () => ({
+      params: {
+        genres: selectedGenre?.id,
+        platforms: selectedPlatform?.id,
+      },
+    }),
+    [selectedGenre?.id, selectedPlatform?.id],
+  );
+
   return useData<Game>('/games', config);
 };
 
