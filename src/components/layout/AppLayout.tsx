@@ -6,27 +6,31 @@ import { type Genre } from '@/hooks/useGenres';
 import { type Platform } from '@/hooks/useGames';
 import usePlatforms from '@/hooks/usePlatforms';
 
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}
+
 const AppLayout = () => {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(null);
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   const { data: platforms, error } = usePlatforms();
 
   return (
     <div className='flex'>
       <aside className='hidden lg:block w-54 px-4'>
         <GenreList
-          onSelectGenre={(genre) => setSelectedGenre(genre)}
-          selectedGenre={selectedGenre}
+          onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+          selectedGenre={gameQuery.genre}
         />
       </aside>
       <main className='min-h-screen flex-1 pt-10'>
         {!error && (
           <PlatformSelector
             platforms={platforms}
-            onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+            onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
           />
         )}
-        <GameGrid selectedPlatform={selectedPlatform} selectedGenre={selectedGenre} />
+        <GameGrid gameQuery={gameQuery} />
       </main>
     </div>
   );
