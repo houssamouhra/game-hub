@@ -11,7 +11,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
   const { data, isLoading } = useGenres();
 
   return (
-    <div className='min-h-screen pt-10'>
+    <div className='min-h-screen mt-10'>
       <ul>
         {isLoading
           ? Array.from({ length: 10 }, (_, index) => <GenreListSkeleton key={index} />)
