@@ -10,11 +10,20 @@ import usePlatforms from '@/hooks/usePlatforms';
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortOrder: string;
 }
 
 const AppLayout = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   const { data: platforms, error } = usePlatforms();
+
+  const sortOrder = [
+    { value: '-added', label: 'Date added' },
+    { value: 'name', label: 'Name' },
+    { value: '-released', label: 'Release date' },
+    { value: '-metacritic', label: 'Popularity' },
+    { value: '-rating', label: 'Average rating' },
+  ];
 
   return (
     <div className='flex'>
@@ -32,7 +41,11 @@ const AppLayout = () => {
               onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
             />
           )}
-          <SortSelector />
+          <SortSelector
+            sortOrder={sortOrder}
+            value={gameQuery.sortOrder}
+            onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })}
+          />
         </div>
         <GameGrid gameQuery={gameQuery} />
       </main>

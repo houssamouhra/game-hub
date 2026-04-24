@@ -7,24 +7,38 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
-const SortSelector = () => {
+interface SortOption {
+  value: string;
+  label: string;
+}
+
+interface SortSelectorProps {
+  sortOrder: SortOption[];
+  value: string;
+  onSelectSortOrder: (sortOrder: string) => void;
+}
+
+const SortSelector = ({ sortOrder, value, onSelectSortOrder }: SortSelectorProps) => {
   return (
-    <>
-      <Select>
-        <SelectTrigger className='w-full max-w-48'>
-          <SelectValue placeholder='Order by' />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            <SelectItem value='relevence'>Relevence</SelectItem>
-            <SelectItem value='date added'>Date added</SelectItem>
-            <SelectItem value='release date'>Release date</SelectItem>
-            <SelectItem value='popularity'>Popularity</SelectItem>
-            <SelectItem value='average rating'>Average rating</SelectItem>
-          </SelectGroup>
-        </SelectContent>
-      </Select>
-    </>
+    <Select
+      value={value}
+      onValueChange={(value) => {
+        onSelectSortOrder(value);
+      }}
+    >
+      <SelectTrigger className='w-full max-w-48'>
+        <SelectValue placeholder='Order by' />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          {sortOrder.map((order) => (
+            <SelectItem key={order.value} value={order.value}>
+              {order.label}
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   );
 };
 
