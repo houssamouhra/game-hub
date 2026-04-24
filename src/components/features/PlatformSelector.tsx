@@ -15,7 +15,7 @@ interface PlatformSelectorProps {
 
 const PlatformSelector = ({ platforms, onSelectPlatform }: PlatformSelectorProps) => {
   return (
-    <div className='pl-10 pb-3'>
+    <>
       <Select
         onValueChange={(value) => {
           const selected = platforms.find((p) => p.name === value);
@@ -35,7 +35,7 @@ const PlatformSelector = ({ platforms, onSelectPlatform }: PlatformSelectorProps
           </SelectGroup>
         </SelectContent>
       </Select>
-    </div>
+    </>
   );
 };
 
