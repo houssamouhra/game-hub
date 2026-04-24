@@ -2,6 +2,7 @@ import { useState } from 'react';
 import GameGrid from '@/components/features/GameGrid';
 import { GenreList } from '@/components/features/GenreList';
 import PlatformSelector from '@/components/features/PlatformSelector';
+import SortSelector from '@/components/features/SortSelector';
 import { type Genre } from '@/hooks/useGenres';
 import { type Platform } from '@/hooks/useGames';
 import usePlatforms from '@/hooks/usePlatforms';
@@ -24,12 +25,15 @@ const AppLayout = () => {
         />
       </aside>
       <main className='min-h-screen flex-1 pt-10'>
-        {!error && (
-          <PlatformSelector
-            platforms={platforms}
-            onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
-          />
-        )}
+        <div className='flex gap-3 pl-10 mb-4'>
+          {!error && (
+            <PlatformSelector
+              platforms={platforms}
+              onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
+            />
+          )}
+          <SortSelector />
+        </div>
         <GameGrid gameQuery={gameQuery} />
       </main>
     </div>
