@@ -33,7 +33,7 @@ const AppLayout = () => {
           selectedGenre={gameQuery.genre}
         />
       </aside>
-      <main className='min-h-screen flex-1 pt-10'>
+      <main className='min-h-screen flex-1 mt-10'>
         <div className='flex gap-3 pl-10 mb-4'>
           {!error && (
             <PlatformSelector
