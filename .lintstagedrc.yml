@@ -1,1 +1,6 @@
---- {'*.tsx,ts': [eslint --fix, prettier --write], '*.{tsx,ts,json}': [prettier --write]}
+'**/*.{ts,tsx}':
+  - eslint --fix
+  - prettier --write
+
+'**/*.{css, json, yml, md}':
+  - prettier --write
