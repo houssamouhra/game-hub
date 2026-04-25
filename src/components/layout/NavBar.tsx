@@ -6,8 +6,8 @@ import { Icon } from '@iconify/react';
 
 const NavBar = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    if (typeof window === 'undefined') return 'light';
-    return (localStorage.getItem('theme') as 'light' | 'dark') || 'light';
+    if (typeof window === 'undefined') return 'dark';
+    return (localStorage.getItem('theme') as 'light' | 'dark') || 'dark';
   });
 
   const toggleDarkMode = () => {
