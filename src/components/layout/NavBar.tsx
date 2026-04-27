@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import Darklogo from '@/assets/dark-logo.svg';
 import Lightlogo from '@/assets/light-logo.svg';
-import { Icon } from '@iconify/react';
 import SearchInput from '@/components/features/SearchInput';
+import ThemeToggle from '../features/ThemeToggle';
 
 const NavBar = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -27,17 +27,7 @@ const NavBar = () => {
         className='h-12 w-auto pr-2 object-contain'
       />
       <SearchInput />
-      <button
-        onClick={toggleDarkMode}
-        className='p-2 rounded-full hover:bg-zinc-700 transition cursor-pointer'
-        aria-label='Toggle theme'
-      >
-        {theme === 'dark' ? (
-          <Icon icon='tabler:sun-filled' width='24' height='24' />
-        ) : (
-          <Icon icon='tabler:moon' width='24' height='24' />
-        )}
-      </button>
+      <ThemeToggle theme={theme} onToggleMode={toggleDarkMode} />
     </nav>
   );
 };
