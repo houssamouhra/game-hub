@@ -7,6 +7,7 @@ import { type Genre } from '@/hooks/useGenres';
 import { type Platform } from '@/hooks/useGames';
 import usePlatforms from '@/hooks/usePlatforms';
 import NavBar from '@/components/layout/NavBar';
+import GameHeading from '@/components/features/GameHeading';
 
 export interface GameQuery {
   genre: Genre | null;
@@ -45,18 +46,21 @@ const AppLayout = () => {
           />
         </aside>
         <main className='min-h-screen flex-1 mt-10'>
-          <div className='flex gap-3 pl-10 mb-4'>
-            {!error && (
-              <PlatformSelector
-                platforms={platforms}
-                onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
+          <div className='flex flex-col gap-3 pl-10 mb-4'>
+            <GameHeading gameQuery={gameQuery} />
+            <div className='flex gap-3'>
+              {!error && (
+                <PlatformSelector
+                  platforms={platforms}
+                  onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
+                />
+              )}
+              <SortSelector
+                sortOrder={sortOrder}
+                value={gameQuery.sortOrder}
+                onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })}
               />
-            )}
-            <SortSelector
-              sortOrder={sortOrder}
-              value={gameQuery.sortOrder}
-              onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })}
-            />
+            </div>
           </div>
           <GameGrid gameQuery={gameQuery} />
         </main>
