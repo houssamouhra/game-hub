@@ -15,27 +15,25 @@ interface PlatformSelectorProps {
 
 const PlatformSelector = ({ platforms, onSelectPlatform }: PlatformSelectorProps) => {
   return (
-    <>
-      <Select
-        onValueChange={(value) => {
-          const selected = platforms.find((p) => p.name === value);
-          if (selected) onSelectPlatform(selected);
-        }}
-      >
-        <SelectTrigger className='w-full max-w-48'>
-          <SelectValue placeholder='Platforms' />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            {platforms.map((platform) => (
-              <SelectItem key={platform.id} value={platform.name}>
-                {platform.name}
-              </SelectItem>
-            ))}
-          </SelectGroup>
-        </SelectContent>
-      </Select>
-    </>
+    <Select
+      onValueChange={(value) => {
+        const selected = platforms.find((p) => p.name === value);
+        if (selected) onSelectPlatform(selected);
+      }}
+    >
+      <SelectTrigger className='w-full max-w-48'>
+        <SelectValue placeholder='Platforms' />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          {platforms.map((platform) => (
+            <SelectItem key={platform.id} value={platform.name}>
+              {platform.name}
+            </SelectItem>
+          ))}
+        </SelectGroup>
+      </SelectContent>
+    </Select>
   );
 };
 
