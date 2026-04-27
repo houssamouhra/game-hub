@@ -14,7 +14,12 @@ export interface GameQuery {
 }
 
 const AppLayout = () => {
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
+  const [gameQuery, setGameQuery] = useState<GameQuery>({
+    genre: null,
+    platform: null,
+    sortOrder: '',
+  });
+
   const { data: platforms, error } = usePlatforms();
 
   const sortOrder = [
