@@ -6,11 +6,13 @@ import SortSelector from '@/components/features/SortSelector';
 import { type Genre } from '@/hooks/useGenres';
 import { type Platform } from '@/hooks/useGames';
 import usePlatforms from '@/hooks/usePlatforms';
+import NavBar from '@/components/layout/NavBar';
 
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText: string;
 }
 
 const AppLayout = () => {
@@ -18,6 +20,7 @@ const AppLayout = () => {
     genre: null,
     platform: null,
     sortOrder: '',
+    searchText: '',
   });
 
   const { data: platforms, error } = usePlatforms();
@@ -31,30 +34,34 @@ const AppLayout = () => {
   ];
 
   return (
-    <div className='flex'>
-      <aside className='hidden lg:block w-54 px-4'>
-        <GenreList
-          onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
-          selectedGenre={gameQuery.genre}
-        />
-      </aside>
-      <main className='min-h-screen flex-1 mt-10'>
-        <div className='flex gap-3 pl-10 mb-4'>
-          {!error && (
-            <PlatformSelector
-              platforms={platforms}
-              onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
-            />
-          )}
-          <SortSelector
-            sortOrder={sortOrder}
-            value={gameQuery.sortOrder}
-            onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })}
+    <>
+      <NavBar onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })} />
+
+      <div className='flex'>
+        <aside className='hidden lg:block w-54 px-4'>
+          <GenreList
+            onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
+            selectedGenre={gameQuery.genre}
           />
-        </div>
-        <GameGrid gameQuery={gameQuery} />
-      </main>
-    </div>
+        </aside>
+        <main className='min-h-screen flex-1 mt-10'>
+          <div className='flex gap-3 pl-10 mb-4'>
+            {!error && (
+              <PlatformSelector
+                platforms={platforms}
+                onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
+              />
+            )}
+            <SortSelector
+              sortOrder={sortOrder}
+              value={gameQuery.sortOrder}
+              onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })}
+            />
+          </div>
+          <GameGrid gameQuery={gameQuery} />
+        </main>
+      </div>
+    </>
   );
 };
 

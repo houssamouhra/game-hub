@@ -1,13 +1,7 @@
-import NavBar from '@/components/layout/NavBar';
 import AppLayout from '@/components/layout/AppLayout';
 
 const App = () => {
-  return (
-    <>
-      <NavBar />
-      <AppLayout />
-    </>
-  );
+  return <AppLayout />;
 };
 
 export default App;

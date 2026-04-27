@@ -4,7 +4,11 @@ import Lightlogo from '@/assets/light-logo.svg';
 import SearchInput from '@/components/features/SearchInput';
 import ThemeToggle from '../features/ThemeToggle';
 
-const NavBar = () => {
+interface NavBarProps {
+  onSearch: (searchText: string) => void;
+}
+
+const NavBar = ({ onSearch }: NavBarProps) => {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     if (typeof window === 'undefined') return 'dark';
     return (localStorage.getItem('theme') as 'light' | 'dark') || 'dark';
@@ -26,7 +30,7 @@ const NavBar = () => {
         src={theme === 'dark' ? Lightlogo : Darklogo}
         className='h-12 w-auto pr-2 object-contain'
       />
-      <SearchInput />
+      <SearchInput onSearch={onSearch} />
       <ThemeToggle theme={theme} onToggleMode={toggleDarkMode} />
     </nav>
   );
