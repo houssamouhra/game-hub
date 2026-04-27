@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import Darklogo from '@/assets/dark-logo.svg';
 import Lightlogo from '@/assets/light-logo.svg';
-import { Input } from '@/ui/input';
 import { Icon } from '@iconify/react';
+import SearchInput from '@/components/features/SearchInput';
 
 const NavBar = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -26,18 +26,7 @@ const NavBar = () => {
         src={theme === 'dark' ? Lightlogo : Darklogo}
         className='h-12 w-auto pr-2 object-contain'
       />
-      <div className='relative w-full max-w-xl group'>
-        <Icon
-          icon='material-symbols:search-rounded'
-          width='24'
-          height='24'
-          className='pointer-events-none absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-neutral-400 dark:group-hover:text-neutral-700 transition'
-        />
-        <Input
-          placeholder='Search games...'
-          className='pl-8 w-full max-w-xl rounded-full text-sm bg-white dark:bg-neutral-700 dark:text-neutral-300 dark:group-hover:bg-white dark:group-hover:text-black transition duration-300'
-        />
-      </div>
+      <SearchInput />
       <button
         onClick={toggleDarkMode}
         className='p-2 rounded-full hover:bg-zinc-700 transition cursor-pointer'
