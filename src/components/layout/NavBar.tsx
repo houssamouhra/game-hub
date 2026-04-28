@@ -25,7 +25,7 @@ const NavBar = ({ onSearch }: NavBarProps) => {
   }, [theme]);
 
   return (
-    <nav className='flex items-center justify-between h-16 px-6 bg-zinc-400 dark:bg-zinc-900'>
+    <nav className='flex items-center justify-between h-16 px-6'>
       <img
         src={theme === 'dark' ? Lightlogo : Darklogo}
         className='h-12 w-auto pr-2 object-contain'
