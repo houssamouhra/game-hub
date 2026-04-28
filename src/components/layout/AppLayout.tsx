@@ -37,7 +37,6 @@ const AppLayout = () => {
   return (
     <>
       <NavBar onSearch={(searchText) => setGameQuery({ ...gameQuery, searchText })} />
-
       <div className='flex'>
         <aside className='hidden lg:block w-54 px-4'>
           <GenreList
