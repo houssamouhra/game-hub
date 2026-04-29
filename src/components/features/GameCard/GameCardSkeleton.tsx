@@ -13,8 +13,8 @@ const GameCardSkeleton = () => {
       header={
         <CardHeader className='flex justify-between items-end'>
           <div className='flex flex-col gap-2'>
-            <Skeleton className='h-4 w-40' />
             <Skeleton className='h-4 w-20' />
+            <Skeleton className='h-4 w-40' />
           </div>
           <div className='shrink-0'>
             <Skeleton className='h-4 w-8' />
