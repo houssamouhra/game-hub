@@ -21,11 +21,12 @@ const GameCard = ({ game }: GameCardProps) => {
       }
       header={
         <CardHeader>
-          <CardTitle className='text-xl'>{game.name}</CardTitle>
+          <div className='flex gap-1 mb-1'>
+            <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
+          </div>
+
           <div className='flex justify-between items-center'>
-            <div className='flex gap-1'>
-              <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
-            </div>
+            <CardTitle className='text-xl font-semibold'>{game.name}</CardTitle>
             <CriticScore score={game.metacritic} />
           </div>
         </CardHeader>
