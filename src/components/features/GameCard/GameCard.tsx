@@ -3,6 +3,7 @@ import { CardHeader, CardTitle } from '@/ui/card';
 import { GameCardContainer } from '@/components/features/GameCard';
 import PlatformIconList from '@/components/features/PlatformIconList';
 import CriticScore from '@/components/features/CriticScore';
+import Emoji from '@/components/features/Emoji';
 import getCroppedImageUrl from '@/utils/image-url';
 
 interface GameCardProps {
@@ -26,7 +27,10 @@ const GameCard = ({ game }: GameCardProps) => {
           </div>
 
           <div className='flex justify-between items-center'>
-            <CardTitle className='text-xl font-semibold'>{game.name}</CardTitle>
+            <CardTitle className='text-xl font-semibold'>
+              {game.name}
+              <Emoji rating={game.rating_top} />
+            </CardTitle>
             <CriticScore score={game.metacritic} />
           </div>
         </CardHeader>
