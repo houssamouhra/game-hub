@@ -26,7 +26,7 @@ const SortSelector = ({ sortOrder, value, onSelectSortOrder }: SortSelectorProps
         onSelectSortOrder(value);
       }}
     >
-      <SelectTrigger className='w-full max-w-48'>
+      <SelectTrigger className='w-full max-w-48 bg-input/50'>
         <SelectValue placeholder='Order by' />
       </SelectTrigger>
       <SelectContent>

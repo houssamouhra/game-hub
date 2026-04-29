@@ -21,7 +21,7 @@ const PlatformSelector = ({ platforms, onSelectPlatform }: PlatformSelectorProps
         if (selected) onSelectPlatform(selected);
       }}
     >
-      <SelectTrigger className='w-full max-w-48'>
+      <SelectTrigger className='w-full max-w-48 bg-input/50'>
         <SelectValue placeholder='Platforms' />
       </SelectTrigger>
       <SelectContent>
