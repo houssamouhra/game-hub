@@ -1,6 +1,11 @@
 # Game-hub
 
-![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-2D79C7?style=flat&logo=typescript&logoColor=white) ![pnpm](https://img.shields.io/badge/pnpm-10.33-orange?style=flat&logo=pnpm) ![build](https://img.shields.io/badge/build-passing-brightgreen?style=flat) ![website](https://img.shields.io/website?url=https://game-hub-houssam.vercel.app) ![license](https://img.shields.io/badge/license-MIT-blue?style=flat)
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB) &nbsp;&nbsp;
+![TypeScript](https://img.shields.io/badge/TypeScript-2D79C7?style=flat&logo=typescript&logoColor=white) &nbsp;&nbsp;
+![pnpm](https://img.shields.io/badge/pnpm-10.33-orange?style=flat&logo=pnpm) &nbsp;&nbsp;
+![build](https://img.shields.io/badge/build-passing-brightgreen?style=flat) &nbsp;&nbsp;
+![website](https://img.shields.io/website?url=https://game-hub-houssam.vercel.app) &nbsp;&nbsp;
+![license](https://img.shields.io/badge/license-MIT-blue?style=flat)
 
 A modern game discovery web app for browsing, searching, and filtering video games with a clean responsive UI powered by the RAWG API.
 
