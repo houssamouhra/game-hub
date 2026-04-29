@@ -10,6 +10,7 @@ interface GameGridProps {
 
 const GameGrid = ({ gameQuery }: GameGridProps) => {
   const { data, isLoading, error } = useGames(gameQuery);
+
   const showSkeleton = isLoading || data.length === 0;
 
   return (
@@ -23,7 +24,7 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
           </Alert>
         </div>
       )}
-      <div className='grid grid-rows-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 p-10 pt-0 gap-6'>
+      <div className='grid grid-rows-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-10 pt-0 gap-6'>
         {showSkeleton
           ? Array.from({ length: 20 }, (_, i) => <GameCardSkeleton key={i} />)
           : data.map((game) => <GameCard key={game.id} game={game} />)}
