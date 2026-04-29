@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import GameGrid from '@/components/features/GameGrid';
-import { GenreList } from '@/components/features/GenreList';
+import GenreList from '@/components/features/GenreList';
 import PlatformSelector from '@/components/features/PlatformSelector';
 import SortSelector from '@/components/features/SortSelector';
 import NavBar from '@/components/layout/NavBar';
