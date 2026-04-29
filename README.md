@@ -1,5 +1,5 @@
 # Game-hub
-![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-2D79C7?style=flat&logo=typescript&logoColor=white) ![node](https://img.shields.io/badge/node-24-green?style=plastic&logo=node.js) ![pnpm](https://img.shields.io/badge/pnpm-10.33-orange?style=flat&logo=pnpm) ![build](https://img.shields.io/badge/build-passing-brightgreen?style=flat) ![website](https://img.shields.io/badge/website-up-brightgreen?style=flat) ![license](https://img.shields.io/badge/license-MIT-green?style=flat)
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-2D79C7?style=flat&logo=typescript&logoColor=white) ![node](https://img.shields.io/badge/node-24-green?style=plastic&logo=node.js) ![pnpm](https://img.shields.io/badge/pnpm-10.33-orange?style=flat&logo=pnpm) ![build](https://img.shields.io/badge/build-passing-brightgreen?style=flat) ![website](https://img.shields.io/badge/website-up-brightgreen?style=flat) ![license](https://img.shields.io/badge/license-MIT-blue?style=flat)
 
 
 A modern game discovery web app for browsing, searching, and filtering video games with a clean responsive UI powered by the RAWG API.
