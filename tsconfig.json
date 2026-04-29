@@ -3,7 +3,13 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@/ui/*": ["src/components/ui/*"]
+      "@/ui/*": ["src/components/ui/*"],
+      "@/layout/*": ["src/components/layout/*"],
+      "@/features/game/*": ["src/components/features/game/*"],
+      "@/features/genre/*": ["src/components/features/genre/*"],
+      "@/features/platform/*": ["src/components/features/platform/*"],
+      "@/features/controls/*": ["src/components/features/controls/*"],
+      "@/features/sort/*": ["src/components/features/sort/*"]
     },
     "ignoreDeprecations": "6.0"
   },
