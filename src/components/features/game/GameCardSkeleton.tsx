@@ -1,6 +1,6 @@
 import { Skeleton } from '@/ui/skeleton';
 import { CardContent, CardHeader } from '@/ui/card';
-import { GameCardContainer } from '@/components/features/GameCard';
+import GameCardContainer from '@/features/game/GameCardContainer';
 
 const GameCardSkeleton = () => {
   return (

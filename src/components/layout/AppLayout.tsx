@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import GameGrid from '@/components/features/GameGrid';
-import GenreList from '@/components/features/GenreList';
-import PlatformSelector from '@/components/features/PlatformSelector';
-import SortSelector from '@/components/features/SortSelector';
-import NavBar from '@/components/layout/NavBar';
-import GameHeading from '@/components/features/GameHeading';
+import NavBar from '@/layout/NavBar';
+import GameGrid from '@/features/game/GameGrid';
+import GenreList from '@/features/genre/GenreList';
+import PlatformSelector from '@/features/platform/PlatformSelector';
+import SortSelector from '@/features/sort/SortSelector';
+import GameHeading from '@/features/game/GameHeading';
+import usePlatforms from '@/hooks/usePlatforms';
 import { type Genre } from '@/hooks/useGenres';
 import { type Platform } from '@/hooks/useGames';
-import usePlatforms from '@/hooks/usePlatforms';
 
 export interface GameQuery {
   genre: Genre | null;

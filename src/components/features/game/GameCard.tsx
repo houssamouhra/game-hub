@@ -1,9 +1,9 @@
 import { type Game } from '@/hooks/useGames';
 import { CardHeader, CardTitle } from '@/ui/card';
-import { GameCardContainer } from '@/components/features/GameCard';
-import PlatformIconList from '@/components/features/PlatformIconList';
-import CriticScore from '@/components/features/CriticScore';
-import Emoji from '@/components/features/Emoji';
+import GameCardContainer from '@/features/game/GameCardContainer';
+import PlatformIconList from '@/features/platform/PlatformIconList';
+import CriticScore from '@/features/game/CriticScore';
+import Emoji from '@/features/game/Emoji';
 import getCroppedImageUrl from '@/utils/image-url';
 
 interface GameCardProps {

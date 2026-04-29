@@ -1,4 +1,4 @@
-import { type GameQuery } from '@/components/layout/AppLayout';
+import { type GameQuery } from '@/layout/AppLayout';
 
 interface GameHeadingProps {
   gameQuery: GameQuery;

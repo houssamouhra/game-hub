@@ -1,8 +1,9 @@
 import { Icon } from '@iconify/react';
-import { GameCard, GameCardSkeleton } from '@/components/features/GameCard';
+import GameCard from '@/features/game/GameCard';
+import GameCardSkeleton from '@/features/game/GameCardSkeleton';
 import { Alert, AlertDescription, AlertTitle } from '@/ui/alert';
 import useGames from '@/hooks/useGames';
-import { type GameQuery } from '@/components/layout/AppLayout';
+import { type GameQuery } from '@/layout/AppLayout';
 
 interface GameGridProps {
   gameQuery: GameQuery;

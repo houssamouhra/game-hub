@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import Darklogo from '@/assets/dark-logo.svg';
 import Lightlogo from '@/assets/light-logo.svg';
-import SearchInput from '@/components/features/SearchInput';
-import ThemeToggle from '../features/ThemeToggle';
+import SearchInput from '@/features/controls/SearchInput';
+import ThemeToggle from '@/features/controls/ThemeToggle';
 
 interface NavBarProps {
   onSearch: (searchText: string) => void;
