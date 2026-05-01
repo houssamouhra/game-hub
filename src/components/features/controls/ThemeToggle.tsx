@@ -9,7 +9,7 @@ const ThemeToggle = ({ theme, onToggleMode }: DarkModeProps) => {
   return (
     <button
       onClick={onToggleMode}
-      className='p-2 group rounded-full hover:bg-zinc-700 transition cursor-pointer'
+      className='p-2 group rounded-full hover:bg-input/90 transition cursor-pointer'
       aria-label='Toggle theme'
     >
       {theme === 'dark' ? (
@@ -24,7 +24,7 @@ const ThemeToggle = ({ theme, onToggleMode }: DarkModeProps) => {
           icon='tabler:moon'
           width='24'
           height='24'
-          className='text-input/200 group-hover:text-input/90 transition-colors'
+          className='text-input/200 group-hover:text-input/200 transition-colors'
         />
       )}
     </button>
