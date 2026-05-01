@@ -14,14 +14,14 @@ const ThemeToggle = ({ theme, onToggleMode }: DarkModeProps) => {
     >
       {theme === 'dark' ? (
         <Icon
-          icon='tabler:sun-filled'
+          icon='tabler:moon'
           width='22'
           height='22'
           className='text-input/200 group-hover:text-input/200 transition-colors'
         />
       ) : (
         <Icon
-          icon='tabler:moon'
+          icon='tabler:sun-filled'
           width='22'
           height='22'
           className='text-input/200 group-hover:text-input/200 transition-colors'
