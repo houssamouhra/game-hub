@@ -1,14 +1,10 @@
-echo "Preparing to push your code... 🚀"
-echo "Running full ESLint check on the repository... 🔍"
+#!/bin/sh
+set -e
+
+echo "Running checks before push..."
 
 pnpm lint
+pnpm format:check
+pnpm type-check
 
-if [ $? -ne 0 ]; then
-  echo "Lint errors detected! Push aborted. ❌"
-  echo "Run 'pnpm run lint:fix' to fix what can be auto-corrected. 🧩"
-  exit 1
-fi
-
-echo "All good! Code passed the lint check. ✅"
-echo "Push in progress... ⬆️"
-echo "Mission accomplished, sir! 🫡"
+echo "Checks passed. Proceeding with push."
