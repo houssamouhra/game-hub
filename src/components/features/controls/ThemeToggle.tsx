@@ -21,7 +21,7 @@ const ThemeToggle = ({ theme, onToggleMode }: DarkModeProps) => {
         />
       ) : (
         <Icon
-          icon='tabler:sun-filled'
+          icon='tabler:sun-high'
           width='22'
           height='22'
           className='text-input/200 group-hover:text-input/200 transition-colors'
