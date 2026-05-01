@@ -10,6 +10,7 @@ const ThemeToggle = ({ theme, onToggleMode }: DarkModeProps) => {
     <button
       onClick={onToggleMode}
       className='p-2 group rounded-full hover:bg-input/90 transition cursor-pointer'
+      title={`Switch between light and dark mode (currently ${theme} mode)`}
       aria-label='Toggle theme'
     >
       {theme === 'dark' ? (
