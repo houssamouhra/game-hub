@@ -23,7 +23,7 @@ const GameCard = ({ game }: GameCardProps) => {
       header={
         <CardHeader>
           <div className='flex gap-1 mb-1'>
-            <PlatformIconList platforms={game.parent_platforms.map((p) => p.platform)} />
+            <PlatformIconList platforms={(game.parent_platforms ?? []).map((p) => p.platform)} />
           </div>
 
           <div className='flex justify-between items-center'>
