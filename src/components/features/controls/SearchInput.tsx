@@ -14,7 +14,7 @@ const SearchInput = ({ onSearch }: SearchInputProps) => {
         event.preventDefault();
         if (ref.current) onSearch(ref.current.value);
       }}
-      className='relative w-full max-w-xl group'
+      className='relative w-full max-w-xl group mx-2'
     >
       <Icon
         icon='mi-search'
