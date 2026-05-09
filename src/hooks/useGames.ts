@@ -1,7 +1,8 @@
-import { useMemo } from 'react';
-import useData from '@/hooks/useData';
+import { useQuery } from '@tanstack/react-query';
+import apiClient from '@/services/api-client';
 import { type GameQuery } from '@/components/layout/AppLayout';
 import { type Platform } from '@/hooks/usePlatforms';
+import { type FetchResponse } from '@/hooks/useData';
 
 export interface Game {
   id: number;
@@ -13,19 +14,22 @@ export interface Game {
 }
 
 const useGames = (gameQuery: GameQuery) => {
-  const config = useMemo(
-    () => ({
+  const fetchGames = async (): Promise<FetchResponse<Game>> => {
+    const res = await apiClient.get<FetchResponse<Game>>('/games', {
       params: {
         genres: gameQuery.genre?.id,
         parent_platforms: gameQuery.platform?.id,
         ordering: gameQuery.sortOrder,
         search: gameQuery.searchText,
       },
-    }),
-    [gameQuery],
-  );
+    });
+    return res.data;
+  };
 
-  return useData<Game>('/games', config);
+  return useQuery<FetchResponse<Game>, Error>({
+    queryKey: ['games', gameQuery],
+    queryFn: fetchGames,
+  });
 };
 
 export default useGames;

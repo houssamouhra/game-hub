@@ -10,9 +10,9 @@ interface GameGridProps {
 }
 
 const GameGrid = ({ gameQuery }: GameGridProps) => {
-  const { data, isLoading, error } = useGames(gameQuery);
+  const { data, isPending, error } = useGames(gameQuery);
 
-  const showSkeleton = isLoading || data.length === 0;
+  const showSkeleton = isPending || data?.results.length === 0;
 
   if (error)
     return (
@@ -20,7 +20,7 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
         <Alert variant='destructive'>
           <Icon icon='tabler:alert-circle' />
           <AlertTitle>Something went wrong</AlertTitle>
-          <AlertDescription>{error}</AlertDescription>
+          <AlertDescription>{error.message}</AlertDescription>
         </Alert>
       </div>
     );
@@ -29,7 +29,7 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
     <div className='grid grid-rows-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-10 pt-0 gap-6'>
       {showSkeleton
         ? Array.from({ length: 20 }, (_, i) => <GameCardSkeleton key={i} />)
-        : data.map((game) => <GameCard key={game.id} game={game} />)}
+        : data?.results.map((game) => <GameCard key={game.id} game={game} />)}
     </div>
   );
 };
