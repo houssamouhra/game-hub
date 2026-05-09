@@ -1,5 +1,5 @@
-import { type Platform } from '@/hooks/usePlatforms';
 import { Icon } from '@iconify/react';
+import { type Platform } from '@/hooks/usePlatforms';
 
 interface PlatformIconListProps {
   platforms: Platform[];
