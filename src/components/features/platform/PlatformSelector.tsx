@@ -7,17 +7,22 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { type Platform } from '@/hooks/usePlatforms';
+import usePlatforms from '@/hooks/usePlatforms';
 
 interface PlatformSelectorProps {
-  platforms: Platform[];
+  platforms: Platform[] | undefined;
   onSelectPlatform: (platform: Platform) => void;
 }
 
 const PlatformSelector = ({ platforms, onSelectPlatform }: PlatformSelectorProps) => {
+  const { data, error } = usePlatforms();
+
+  if (error) return null;
+
   return (
     <Select
       onValueChange={(value) => {
-        const selected = platforms.find((p) => p.name === value);
+        const selected = platforms?.find((p) => p.name === value);
         if (selected) onSelectPlatform(selected);
       }}
     >
@@ -26,7 +31,7 @@ const PlatformSelector = ({ platforms, onSelectPlatform }: PlatformSelectorProps
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          {platforms.map((platform) => (
+          {data?.results.map((platform) => (
             <SelectItem key={platform.id} value={platform.name}>
               {platform.name}
             </SelectItem>

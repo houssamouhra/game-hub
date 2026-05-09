@@ -50,7 +50,7 @@ const AppLayout = () => {
             <div className='flex gap-3'>
               {!error && (
                 <PlatformSelector
-                  platforms={platforms}
+                  platforms={platforms?.results}
                   onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
                 />
               )}
