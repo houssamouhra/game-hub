@@ -6,8 +6,7 @@ import {
   SelectGroup,
   SelectValue,
 } from '@/components/ui/select';
-import { type Platform } from '@/hooks/usePlatforms';
-import usePlatforms from '@/hooks/usePlatforms';
+import usePlatforms, { type Platform } from '@/hooks/usePlatforms';
 
 interface PlatformSelectorProps {
   platforms: Platform[] | undefined;
