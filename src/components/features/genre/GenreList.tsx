@@ -14,7 +14,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
       <h1 className='text-2xl font-semibold ml-2 my-3 tracking-tight text-balance'>Genres</h1>
       <div className='min-h-screen mt-2'>
         <ul>
-          {data.map((genre) => {
+          {data?.results.map((genre) => {
             const isActive = selectedGenre?.id === genre.id;
 
             return (
