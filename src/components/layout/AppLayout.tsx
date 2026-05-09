@@ -7,7 +7,7 @@ import SortSelector from '@/features/sort/SortSelector';
 import GameHeading from '@/features/game/GameHeading';
 import usePlatforms from '@/hooks/usePlatforms';
 import { type Genre } from '@/hooks/useGenres';
-import { type Platform } from '@/hooks/useGames';
+import { type Platform } from '@/hooks/usePlatforms';
 
 export interface GameQuery {
   genre: Genre | null;

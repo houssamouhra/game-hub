@@ -1,12 +1,7 @@
 import { useMemo } from 'react';
 import useData from '@/hooks/useData';
 import { type GameQuery } from '@/components/layout/AppLayout';
-
-export interface Platform {
-  id: number;
-  name: string;
-  slug: string;
-}
+import { type Platform } from '@/hooks/usePlatforms';
 
 export interface Game {
   id: number;

@@ -6,7 +6,7 @@ import {
   SelectGroup,
   SelectValue,
 } from '@/components/ui/select';
-import { type Platform } from '@/hooks/useGames';
+import { type Platform } from '@/hooks/usePlatforms';
 
 interface PlatformSelectorProps {
   platforms: Platform[];
