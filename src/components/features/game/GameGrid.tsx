@@ -1,7 +1,8 @@
 import { Icon } from '@iconify/react';
+import { Button } from '@/ui/button';
+import { Alert, AlertDescription, AlertTitle } from '@/ui/alert';
 import GameCard from '@/features/game/GameCard';
 import GameCardSkeleton from '@/features/game/GameCardSkeleton';
-import { Alert, AlertDescription, AlertTitle } from '@/ui/alert';
 import useGames from '@/hooks/useGames';
 import { type GameQuery } from '@/layout/AppLayout';
 
@@ -10,9 +11,19 @@ interface GameGridProps {
 }
 
 const GameGrid = ({ gameQuery }: GameGridProps) => {
-  const { data, isPending, error } = useGames(gameQuery);
+  // prettier-ignore
+  const {
+    data,
+    isFetching,
+    error,
+    isFetchingNextPage,
+    fetchNextPage,
+    hasNextPage
+  } = useGames(gameQuery);
 
-  const showSkeleton = isPending || data?.results.length === 0;
+  const games = data?.pages.flatMap((page) => page.results) ?? [];
+
+  const loading = !data && isFetching;
 
   if (error)
     return (
@@ -26,10 +37,24 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
     );
 
   return (
-    <div className='grid grid-rows-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-10 pt-0 gap-6'>
-      {showSkeleton
-        ? Array.from({ length: 20 }, (_, i) => <GameCardSkeleton key={i} />)
-        : data?.results.map((game) => <GameCard key={game.id} game={game} />)}
+    <div className='p-10 pt-0'>
+      <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
+        {loading
+          ? Array.from({ length: 20 }, (_, i) => <GameCardSkeleton key={i} />)
+          : games.map((game) => <GameCard key={game.id} game={game} />)}
+      </div>
+
+      {hasNextPage && (
+        <Button
+          onClick={() => fetchNextPage()}
+          disabled={isFetchingNextPage}
+          aria-busy={isFetchingNextPage}
+          variant='outline'
+          className='mt-5'
+        >
+          {isFetchingNextPage ? 'Loading...' : 'Load More'}
+        </Button>
+      )}
     </div>
   );
 };
