@@ -1,10 +1,10 @@
 import { Icon } from '@iconify/react';
-import { Button } from '@/ui/button';
 import { Alert, AlertDescription, AlertTitle } from '@/ui/alert';
 import GameCard from '@/features/game/GameCard';
 import GameCardSkeleton from '@/features/game/GameCardSkeleton';
 import useGames from '@/hooks/useGames';
 import { type GameQuery } from '@/layout/AppLayout';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 interface GameGridProps {
   gameQuery: GameQuery;
@@ -16,7 +16,6 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
     data,
     isFetching,
     error,
-    isFetchingNextPage,
     fetchNextPage,
     hasNextPage
   } = useGames(gameQuery);
@@ -36,25 +35,22 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
       </div>
     );
 
+  const fetchedGameCount = data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
+
   return (
     <div className='p-10 pt-0'>
-      <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
-        {loading
-          ? Array.from({ length: 20 }, (_, i) => <GameCardSkeleton key={i} />)
-          : games.map((game) => <GameCard key={game.id} game={game} />)}
-      </div>
-
-      {hasNextPage && (
-        <Button
-          onClick={() => fetchNextPage()}
-          disabled={isFetchingNextPage}
-          aria-busy={isFetchingNextPage}
-          variant='outline'
-          className='mt-5'
-        >
-          {isFetchingNextPage ? 'Loading...' : 'Load More'}
-        </Button>
-      )}
+      <InfiniteScroll
+        dataLength={fetchedGameCount}
+        hasMore={hasNextPage}
+        next={fetchNextPage}
+        loader={<p>Loading...</p>}
+      >
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
+          {loading
+            ? Array.from({ length: 20 }, (_, i) => <GameCardSkeleton key={i} />)
+            : games.map((game) => <GameCard key={game.id} game={game} />)}
+        </div>
+      </InfiniteScroll>
     </div>
   );
 };
