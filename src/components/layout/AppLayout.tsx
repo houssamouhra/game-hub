@@ -6,11 +6,10 @@ import PlatformSelector from '@/features/platform/PlatformSelector';
 import SortSelector from '@/features/sort/SortSelector';
 import GameHeading from '@/features/game/GameHeading';
 import usePlatforms from '@/hooks/usePlatforms';
-import { type Platform } from '@/hooks/usePlatforms';
 
 export interface GameQuery {
   genreId?: number;
-  platform: Platform | null;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }
@@ -18,12 +17,12 @@ export interface GameQuery {
 const AppLayout = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({
     genreId: undefined,
-    platform: null,
+    platformId: undefined,
     sortOrder: '',
     searchText: '',
   });
 
-  const { data: platforms, error } = usePlatforms();
+  const { error } = usePlatforms();
 
   const sortOrder = [
     { value: '-added', label: 'Date added' },
@@ -49,8 +48,10 @@ const AppLayout = () => {
             <div className='flex gap-3'>
               {!error && (
                 <PlatformSelector
-                  platforms={platforms?.results}
-                  onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform })}
+                  selectedPlatformId={gameQuery.platformId}
+                  onSelectPlatform={(platform) =>
+                    setGameQuery({ ...gameQuery, platformId: platform.id })
+                  }
                 />
               )}
               <SortSelector
