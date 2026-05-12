@@ -3,10 +3,10 @@ import getCroppedImageUrl from '@/utils/image-url';
 
 interface GenreListProps {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
+const GenreList = ({ onSelectGenre, selectedGenreId }: GenreListProps) => {
   const { data } = useGenres();
 
   return (
@@ -15,7 +15,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: GenreListProps) => {
       <div className='min-h-screen mt-2'>
         <ul>
           {data?.results.map((genre) => {
-            const isActive = selectedGenre?.id === genre.id;
+            const isActive = selectedGenreId === genre.id;
 
             return (
               <li key={genre.id}>

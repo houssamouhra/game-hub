@@ -6,11 +6,10 @@ import PlatformSelector from '@/features/platform/PlatformSelector';
 import SortSelector from '@/features/sort/SortSelector';
 import GameHeading from '@/features/game/GameHeading';
 import usePlatforms from '@/hooks/usePlatforms';
-import { type Genre } from '@/hooks/useGenres';
 import { type Platform } from '@/hooks/usePlatforms';
 
 export interface GameQuery {
-  genre: Genre | null;
+  genreId?: number;
   platform: Platform | null;
   sortOrder: string;
   searchText: string;
@@ -18,7 +17,7 @@ export interface GameQuery {
 
 const AppLayout = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({
-    genre: null,
+    genreId: undefined,
     platform: null,
     sortOrder: '',
     searchText: '',
@@ -40,8 +39,8 @@ const AppLayout = () => {
       <div className='flex'>
         <aside className='hidden lg:block w-54 px-4'>
           <GenreList
-            onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
-            selectedGenre={gameQuery.genre}
+            onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genreId: genre.id })}
+            selectedGenreId={gameQuery.genreId}
           />
         </aside>
         <main className='min-h-screen flex-1 mt-10'>

@@ -1,3 +1,4 @@
+import useGenres from '@/hooks/useGenres';
 import { type GameQuery } from '@/layout/AppLayout';
 
 interface GameHeadingProps {
@@ -5,7 +6,10 @@ interface GameHeadingProps {
 }
 
 const GameHeading = ({ gameQuery }: GameHeadingProps) => {
-  const heading = `${gameQuery.platform?.name || ''} ${gameQuery.genre?.name || ''} Games`;
+  const { data: genres } = useGenres();
+  const genre = genres.results.find((g) => g.id === gameQuery.genreId);
+
+  const heading = `${gameQuery.platform?.name || ''} ${genre?.name || ''} Games`;
 
   return <h1 className='text-5xl font-extrabold tracking-tight text-balance'>{heading}</h1>;
 };
