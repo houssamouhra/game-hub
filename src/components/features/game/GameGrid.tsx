@@ -49,7 +49,7 @@ const GameGrid = ({ gameQuery }: GameGridProps) => {
           next={() => !isFetchingNextPage && fetchNextPage()}
           loader={<GameCardSkeletonGrid count={8} />}
         >
-          <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-px'>
+          <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-6 p-px'>
             {games.map((game) => (
               <GameCard key={game.id} game={game} />
             ))}
