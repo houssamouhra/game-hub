@@ -6,6 +6,7 @@ import {
   SelectGroup,
   SelectValue,
 } from '@/ui/select';
+import usePlatform from '@/hooks/usePlatform';
 import usePlatforms, { type Platform } from '@/hooks/usePlatforms';
 
 interface PlatformSelectorProps {
@@ -16,9 +17,9 @@ interface PlatformSelectorProps {
 const PlatformSelector = ({ selectedPlatformId, onSelectPlatform }: PlatformSelectorProps) => {
   const { data, error } = usePlatforms();
 
-  if (error) return null;
+  const selectedPlatform = usePlatform(selectedPlatformId);
 
-  const selectedPlatform = data?.results.find((p) => p.id === selectedPlatformId);
+  if (error) return null;
 
   return (
     <Select
